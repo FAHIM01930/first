@@ -24,4 +24,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             behavior: 'smooth'
         });
     });
+
+});
+// --- হ্যামবার্গার মেনু লজিক (এটা যোগ করুন) ---
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.nav-links');
+const navLinks = document.querySelectorAll('.nav-links li');
+
+if(burger){
+    burger.addEventListener('click', () => {
+        // মেনু টগল করা
+        nav.classList.toggle('nav-active');
+        
+        // বার্গার আইকন এনিমেশন (অপশনাল)
+        burger.classList.toggle('toggle');
+    });
+}
+
+// মেনুর লিংকে ক্লিক করলে মেনু বন্ধ হবে
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        nav.classList.remove('nav-active');
+        burger.classList.remove('toggle');
+    });
 });
